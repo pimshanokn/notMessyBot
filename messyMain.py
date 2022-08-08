@@ -94,27 +94,30 @@ async def ultimate(ctx, givenS, givenL):
 
     totalNum = 0
     totalList = []
+    vdDic = {"veryhard": "very hard", "veryeasy": "very easy"}
     for obj in dictRows:
         if obj['VIEWING SEASON'].lower() == givenS.lower():
-            if obj['VIEWING DIFFICULTY'].lower() <= givenL.lower():
+            viewDiff = givenL.lower()
+            if givenL.lower() == "veryhard" or givenL.lower() == "veryeasy":
+                viewDiff = vdDic[givenL.lower()]
+            if obj['VIEWING DIFFICULTY'].lower() == viewDiff:
                 totalList.append(obj['M'])
                 totalNum += 1
-#only come up with very when typing very hard
     await ctx.channel.send(f"There are {totalNum} messier objects you can " +
                             f"observe in {givenS.lower()} at {givenL.lower()} level.")
     await ctx.channel.send(f"They are {totalList}")
-#come back and fix this
 
 @bot.command()
 async def commandsList(ctx):
     await ctx.channel.send("🌌Not Messy Bot's Commands🌌")
     await ctx.channel.send("- season: spring, summer, autumn, winter")
-    await ctx.channel.send("- viewing difficulty: very easy, easy, moderate, hard, very hard")
+    await ctx.channel.send("- viewing difficulty: veryEasy, easy, moderate, hard, veryHard")
     await ctx.channel.send("!ranM [season] - Randomize a messier object you should observe based on season!")
     await ctx.channel.send("!objInfo M[Messier number] - Get an information about a specific Messier object.")
     await ctx.channel.send("!seasonM [season] - See how many Messier objects can be observed this season.!")
     await ctx.channel.send("!ultimate [season] [level] - Randomize a messier objects you should observe basd on season and viewing difficulty.")
     await ctx.channel.send("ps. type saturn to receive a cute text. Happy observing!")
-    #not efficient - try new way
+
+
 
 bot.run(os.getenv("DISCORD_TOKEN"))
