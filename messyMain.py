@@ -1,10 +1,9 @@
-#application id: 999907630086619228
-#token: OTk5OTA3NjMwMDg2NjE5MjI4.Gp5UzV.Hon-dDsfLPY0hPM7v_HuAyMmd5F00N3UyePzRM
 import os
 import csv
 import random
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
 bot = commands.Bot(command_prefix="!")
 
 @bot.event
@@ -118,4 +117,4 @@ async def commandsList(ctx):
     await ctx.channel.send("ps. type saturn to receive a cute text. Happy observing!")
     #not efficient - try new way
 
-bot.run('OTk5OTA3NjMwMDg2NjE5MjI4.Gp5UzV.Hon-dDsfLPY0hPM7v_HuAyMmd5F00N3UyePzRM')
+bot.run(os.getenv("DISCORD_TOKEN"))
