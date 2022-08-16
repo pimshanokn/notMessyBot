@@ -6,7 +6,7 @@ The Messier objects are a set of 110 astronomical objects observed and catalogue
 Not Messy Bot provides information about Messier object through various customizable commands. 
 
 ## Preview
-Commands of Not Messy Bot can be viewed by command !commandsList. There are 4 commands: !ranM, !objInfo, !seasonM, and !ultimate.
+Commands of Not Messy Bot can be viewed by command !commandsList. There are 4 commands: !ranM, !objInfo, !seasonM, and !ultimate. <br /> 
 <img src='https://i.imgur.com/4mwJ5UR.png' title='commandsListScreenshot' width='600' alt='commandsListScreenshot' />
 
 ### !ranM
