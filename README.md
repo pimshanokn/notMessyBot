@@ -26,3 +26,8 @@ Displays how many Messier objects can be observed in a given season.
 Randomizes a messier object that can be observed based on season and viewing.
 <img src='https://i.imgur.com/2dw4T0m.png' title='ultimateScreenshot' width='600' alt='ultimateScreenshot' />
 
+### Bonus: Saturn!
+Type saturn for a cute surprise text! 
+<img src='https://i.imgur.com/O1k0w14.png' title='saturnScreenshot' width='600' alt='saturnScreenshot' />
+
+
