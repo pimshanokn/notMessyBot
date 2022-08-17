@@ -7,20 +7,21 @@ from dotenv import load_dotenv
 bot = commands.Bot(command_prefix="!")
 
 @bot.event
-async def on_ready(): #if the bot is ready will proceed this
+#if the bot is ready will proceed this
+async def on_ready():
     print("Are you ready to observe?")
 
 @bot.event
-async def on_message(message): #ctx = context
+#return cute emojis when typing saturn
+async def on_message(message):
     if message.author == bot.user:
         return
 
     if "saturn" in message.content.lower():
-        #message.content.startswith("saturn")
         channel = message.channel
-        await channel.send("✨🪐✨") #do one with moon
+        await channel.send("✨🪐✨")
     await bot.process_commands(message)
-    #command and event cannot work at the same time so we tell event to wait
+    #command and event cannot work at the same time so tell event to wait
 
 @bot.command()
 #random a number of messier objects
@@ -42,11 +43,12 @@ async def ranM(ctx, season):
 
 
 @bot.command()
+#give info about a designated messier object
 async def objInfo(ctx, mNum):
-    #give info about a designated messier object
     with open ('messierCatalog.csv', 'r') as myFile:
         dictReader = csv.DictReader(myFile)
         dictRows = [dict(row) for row in dictReader]
+
     for obj in dictRows:
         if mNum == obj["M"]:
             mType = obj["TYPE"]
@@ -81,6 +83,7 @@ async def seasonM(ctx, givenS):
         if obj['VIEWING SEASON'].lower() == givenS.lower():
             totalNum += 1
             finalStr += obj['M'] + ", "
+
     await ctx.channel.send(f"There are {totalNum} messier objects you can " +
                             f"observe in {givenS.lower()}!")
     await ctx.channel.send(f"They are: {finalStr[:-2]}")
@@ -103,21 +106,21 @@ async def ultimate(ctx, givenS, givenL):
             if obj['VIEWING DIFFICULTY'].lower() == viewDiff:
                 totalList.append(obj['M'])
                 totalNum += 1
+
     await ctx.channel.send(f"There are {totalNum} messier objects you can " +
                             f"observe in {givenS.lower()} at {givenL.lower()} level.")
     await ctx.channel.send(f"They are {totalList}")
 
 @bot.command()
+#Explaination of all commands
 async def commandsList(ctx):
     await ctx.channel.send("🌌Not Messy Bot's Commands🌌")
     await ctx.channel.send("- season: spring, summer, autumn, winter")
     await ctx.channel.send("- viewing difficulty: veryEasy, easy, moderate, hard, veryHard")
-    await ctx.channel.send("!ranM [season] - Randomize a messier object you should observe based on season!")
-    await ctx.channel.send("!objInfo M[Messier number] - Get an information about a specific Messier object.")
-    await ctx.channel.send("!seasonM [season] - See how many Messier objects can be observed this season.!")
-    await ctx.channel.send("!ultimate [season] [level] - Randomize a messier objects you should observe basd on season and viewing difficulty.")
+    await ctx.channel.send("!ranM [season] - Randomizes the Messier object's number that you can observe based on season!")
+    await ctx.channel.send("!objInfo M[Messier number] - Provides information of the Messier object by number!")
+    await ctx.channel.send("!seasonM [season] - Shows how many Messier objects you can observe this season.!")
+    await ctx.channel.send("!ultimate [season] [level] - Randomizes the messier object you should observe based on season and viewing difficulty.")
     await ctx.channel.send("ps. type saturn to receive a cute text. Happy observing!")
-
-
 
 bot.run(os.getenv("DISCORD_TOKEN"))
