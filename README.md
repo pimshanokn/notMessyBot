@@ -7,14 +7,14 @@ Not Messy Bot provides information about Messier object through various customiz
 
 ## Preview
 Commands of Not Messy Bot can be viewed by command !commandsList. There are 4 commands: !ranM, !objInfo, !seasonM, and !ultimate. <br /> 
-<img src='https://i.imgur.com/4mwJ5UR.png' title='commandsListScreenshot' width='600' alt='commandsListScreenshot' />
+<img src='https://i.imgur.com/yLCqW05.png' title='commandsListScreenshot' width='600' alt='commandsListScreenshot' />
 
 ### !ranM
-Randomizes the Messier object's number that can be observed in a given season. 
+Randomizes the Messier object's number that can be observed in a given season. Magnitude of that Messier object is provided as well. 
 <img src='https://i.imgur.com/V41TF9X.png' title='ranMScreenshot' width='600' alt='ranMScreenshot' />
 
 ### !objInfo
-Provides information of the Messier object of a given number. 
+Provides information of the Messier object of a given number: type, constellation, magnitude, viewing season, and viewing difficulty.  
 <img src='https://i.imgur.com/OET5pWs.png' title='objInfoScreenshot' width='600' alt='objInfoScreenshot' />
 
 ### !seasonM
